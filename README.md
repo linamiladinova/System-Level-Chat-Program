@@ -12,6 +12,7 @@
 В един терминал се пишат командите за сървъра:
 * gcc server.c -o server
 * ./server *port number*
+
 В друг терминал се пишат командите за клиента:
 * gcc client.c -o client
 * ./client 127.0.0.1 *port number*
