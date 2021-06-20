@@ -41,7 +41,8 @@ int main(int argc, char *argv[])
     serv_addr.sin_addr.s_addr = INADDR_ANY;
     serv_addr.sin_port = htons(portno);
 
-    if(bind(socketfd, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) < 0){
+    if(bind(socketfd, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) < 0)
+    {
         error("ERROR on binding");
     }
 
@@ -64,7 +65,7 @@ int main(int argc, char *argv[])
         }
         printf("Client: %s\n", buffer);
         bzero(buffer, 1024);
-        fgetc(buffer, 1024, stdin);
+        fgets(buffer, 1024, stdin);
         
         n = write(newsocketfd, buffer, strlen(buffer));
         if(n < 0)
@@ -72,8 +73,8 @@ int main(int argc, char *argv[])
             error("ERROR on writing.");
         }
 
-        int i = strcmp("Buy", buffer, 3)
-        if(i == 0)
+        int i = strncmp("Buy", buffer, 3);
+        if(i == 0);
         {
             break;
         }
@@ -82,4 +83,3 @@ int main(int argc, char *argv[])
     close(socketfd);
     return 0;
 }
-
